@@ -4,13 +4,9 @@
  * https://www.aem.live/developer/block-collection/fragment
  */
 
-import {
-  decorateMain,
-} from '../../scripts/scripts.js';
+import { decorateMain } from '../../scripts/scripts';
 
-import {
-  loadBlocks,
-} from '../../scripts/aem.js';
+import { loadBlocks } from '../../scripts/aem';
 
 /**
  * Loads a fragment.
@@ -48,7 +44,9 @@ export default async function decorate(block) {
   if (fragment) {
     const fragmentSection = fragment.querySelector(':scope .section');
     if (fragmentSection) {
+      block.firstElementChild.prepend('test 124');
       block.closest('.section').classList.add(...fragmentSection.classList);
+      // block.closest('.section').style.backgroundColor = 'red';
       block.closest('.fragment').replaceWith(...fragment.childNodes);
     }
   }
